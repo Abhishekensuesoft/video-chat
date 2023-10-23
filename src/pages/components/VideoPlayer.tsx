@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../../app/globals.css";
 const Videoplayer = () => {
   const [isVideo, setIsVideo] = useState<boolean>(false);
   const [isSharing, setIsSharing] = useState<boolean>(false);
@@ -46,13 +47,19 @@ const Videoplayer = () => {
     setIsSharing(false);
   }
 
-  useEffect(()=>{
-    gotDevices("video")
-  },[])
+  useEffect(() => {
+    gotDevices("video");
+  }, []);
   return (
-    <div>
-      <h1>Bittu Online Classes</h1>
-      <video id="screen" style={{ width: isVideo ? "500px" : "0" }}></video>
+    <div className="flex flex-col  justify-center items-center">
+      <h1 className="text-4xl mb-2  p-2 font-['Anton']">
+        Bittu Online Classes
+      </h1>
+      <video
+        id="screen"
+        style={{ width: isVideo ? "100%" : "0" }}
+        className="rounded-xl shadow-[0px 7px 7px 0px rgba(0, 0, 0, 0.75) ] h-[460px]"
+      ></video>
       <video
         id="screenSharing"
         style={{ width: isSharing ? "500px" : "0" }}
